@@ -13,7 +13,9 @@ export default async function handler(req, res) {
     today.getUTCMonth()    === reminderDate.getUTCMonth()    &&
     today.getUTCDate()     === reminderDate.getUTCDate();
 
-  if (!isReminderDay) {
+  const isTestMode = req.query.test === 'true';
+
+  if (!isReminderDay && !isTestMode) {
     return res.status(200).json({
       message: 'Nie czas jeszcze.',
       today: today.toISOString().split('T')[0],
@@ -31,7 +33,7 @@ export default async function handler(req, res) {
     body: JSON.stringify({
       from: 'Japonia 2026 <onboarding@resend.dev>',
       to: 'bart.rozbicki@gmail.com',
-      subject: '🎬 ZA 3 DNI — Bilety do Muzeum Ghibli! Nastaw alarm na 2:50 w nocy',
+      subject: isTestMode ? '[TEST] 🎬 ZA 3 DNI — Bilety do Muzeum Ghibli! Nastaw alarm na 2:50 w nocy' : '🎬 ZA 3 DNI — Bilety do Muzeum Ghibli! Nastaw alarm na 2:50 w nocy',
       html: `
         <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; padding: 24px;">
           <h1 style="color: #1a1a2e;">🎬 Muzeum Ghibli — Alarm!</h1>
