@@ -50,22 +50,22 @@
 
   /* COUNTDOWN */
   .countdown {
-    display: flex; gap: 12px; justify-content: center; margin-top: 16px;
+    display: flex; gap: 8px; justify-content: center; margin-top: 12px;
   }
   .countdown-unit {
     display: flex; flex-direction: column; align-items: center;
-    background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2);
-    border-radius: 12px; padding: 8px 14px; min-width: 58px;
+    background: rgba(0,0,0,0.55); border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 8px; padding: 5px 10px; min-width: 44px;
     backdrop-filter: blur(6px);
   }
   .countdown-value {
-    font-size: clamp(1.4rem, 4vw, 2rem); font-weight: 800; line-height: 1;
+    font-size: clamp(0.95rem, 2.5vw, 1.25rem); font-weight: 800; line-height: 1;
     font-variant-numeric: tabular-nums;
     animation: countPulse 1s ease-in-out infinite;
   }
   .countdown-label {
-    font-size: 0.6rem; text-transform: uppercase; letter-spacing: 1px;
-    opacity: 0.75; margin-top: 4px;
+    font-size: 0.5rem; text-transform: uppercase; letter-spacing: 1px;
+    opacity: 0.65; margin-top: 3px;
   }
   @keyframes countPulse {
     0%, 100% { opacity: 1; }
