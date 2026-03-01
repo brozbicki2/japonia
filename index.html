@@ -25,12 +25,19 @@
     color: white; padding: 0; overflow: hidden; position: relative;
   }
   .header-img {
-    width: 100%; height: 320px; object-fit: cover; object-position: center 20%; opacity: 0.35;
+    width: 100%; height: 320px; object-fit: cover; object-position: center 20%; opacity: 0.85;
     display: block;
   }
   .header-content {
     position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
     text-align: center; width: 100%; padding: 0 20px;
+  }
+  .header-content-inner {
+    display: inline-block;
+    background: rgba(0,0,0,0.45);
+    backdrop-filter: blur(4px);
+    border-radius: 16px;
+    padding: 24px 40px;
   }
   .header-content h1 { font-size: clamp(1.8rem, 5vw, 3.2rem); font-weight: 800; letter-spacing: 2px; text-shadow: 2px 2px 8px rgba(0,0,0,0.5); }
   .header-content p { font-size: clamp(0.9rem, 2.5vw, 1.2rem); opacity: 0.9; margin-top: 8px; }
@@ -239,9 +246,11 @@
 <header>
   <img class="header-img" src="japan_header.jpeg" alt="Japonia" loading="lazy">
   <div class="header-content">
-    <h1>🇯🇵 Japonia 2026</h1>
-    <p>Nina · Bartek · Irena — 14 dni w kraju zielonego lata i kwitnących hortensji 🌿</p>
-    <div class="flight-badge">✈️ Austrian Airlines &nbsp;|&nbsp; 24 maja – 6 czerwca 2026 &nbsp;|&nbsp; Wiedeń → Tokyo Narita</div>
+    <div class="header-content-inner">
+      <h1>🇯🇵 Japonia 2026</h1>
+      <p>Nina · Bartek · Irena — 14 dni w kraju zielonego lata i kwitnących hortensji 🌿</p>
+      <div class="flight-badge">✈️ Austrian Airlines &nbsp;|&nbsp; 24 maja – 6 czerwca 2026 &nbsp;|&nbsp; Wiedeń → Tokyo Narita</div>
+    </div>
   </div>
 </header>
 
