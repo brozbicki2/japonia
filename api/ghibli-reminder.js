@@ -31,7 +31,7 @@ export default async function handler(req, res) {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-      from: 'Ghibli Bilety 2026 <onboarding@resend.dev>',
+      from: 'Ghibli Bilety 2026 <noreply@brozbicki.com>',
       to: ['bart.rozbicki@gmail.com', 'irena.gruca@gmail.com'],
       subject: isTestMode ? '[TEST] 🎬 ZA 3 DNI — Bilety do Muzeum Ghibli! Nastaw alarm na 2:50 w nocy' : '🎬 ZA 3 DNI — Bilety do Muzeum Ghibli! Nastaw alarm na 2:50 w nocy',
       html: `
