@@ -62,6 +62,9 @@ export default async function handler(req, res) {
           <p style="margin-top: 24px; color: #888; font-size: 0.85rem;">
             Plan podróży: <a href="https://japonia.vercel.app">japonia.vercel.app</a>
           </p>
+          <img src="https://japonia.vercel.app/ghibli-studio.jpg"
+               alt="Studio Ghibli"
+               style="width: 100%; max-width: 600px; border-radius: 8px; margin-top: 24px; display: block;" />
         </div>
       `,
     }),
