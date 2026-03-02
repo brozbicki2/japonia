@@ -8,7 +8,7 @@ export default function handler(req, res) {
   if (login === 'japonia' && password === 'lecimy2026') {
     res.setHeader(
       'Set-Cookie',
-      'japonia_auth=jp2026_ok; Path=/; HttpOnly; SameSite=Strict; Max-Age=604800'
+      'japonia_auth=jp2026_ok; Path=/; SameSite=Strict; Max-Age=604800'
     );
     return res.status(200).json({ ok: true });
   }
