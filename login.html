@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Japonia 2026 — Logowanie</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #0d1b2a;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .card {
+      background: #1a2e42;
+      border-radius: 16px;
+      padding: 48px 40px;
+      width: 100%;
+      max-width: 380px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+      text-align: center;
+    }
+
+    .logo {
+      font-size: 3rem;
+      margin-bottom: 8px;
+    }
+
+    h1 {
+      color: #f0c040;
+      font-size: 1.4rem;
+      margin-bottom: 4px;
+    }
+
+    .subtitle {
+      color: #8899aa;
+      font-size: 0.85rem;
+      margin-bottom: 32px;
+    }
+
+    label {
+      display: block;
+      text-align: left;
+      color: #aabbcc;
+      font-size: 0.8rem;
+      margin-bottom: 6px;
+      margin-top: 16px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px 16px;
+      border-radius: 8px;
+      border: 1px solid #2a4060;
+      background: #0d1b2a;
+      color: #fff;
+      font-size: 1rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    input:focus {
+      border-color: #f0c040;
+    }
+
+    button {
+      margin-top: 28px;
+      width: 100%;
+      padding: 14px;
+      background: #f0c040;
+      color: #0d1b2a;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    button:hover {
+      background: #ffd84d;
+    }
+
+    .error {
+      margin-top: 16px;
+      color: #ff6b6b;
+      font-size: 0.9rem;
+      display: none;
+    }
+
+    .error.visible {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="logo">🗾</div>
+    <h1>Japonia 2026</h1>
+    <p class="subtitle">24 maja – 6 czerwca · Nina, Bartek, Irena</p>
+
+    <form id="loginForm">
+      <label for="login">Login</label>
+      <input type="text" id="login" name="login" autocomplete="username" autofocus />
+
+      <label for="password">Hasło</label>
+      <input type="password" id="password" name="password" autocomplete="current-password" />
+
+      <button type="submit">Wejdź →</button>
+      <p class="error" id="errorMsg">Nieprawidłowy login lub hasło</p>
+    </form>
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('error')) {
+      document.getElementById('errorMsg').classList.add('visible');
+    }
+
+    document.getElementById('loginForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const login = document.getElementById('login').value;
+      const password = document.getElementById('password').value;
+
+      const res = await fetch('/api/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ login, password }),
+      });
+
+      const data = await res.json();
+      if (data.ok) {
+        window.location.href = '/';
+      } else {
+        document.getElementById('errorMsg').classList.add('visible');
+      }
+    });
+  </script>
+</body>
+</html>
