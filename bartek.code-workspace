@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../../test_agent_telegram"
+		},
+		{
+			"path": "../../gamesture"
+		}
+	],
+	"settings": {}
+}
